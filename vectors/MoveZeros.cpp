@@ -12,16 +12,21 @@ int main()
         cin >> v[i];
     }
 
-    int j = 0;
-    int temp = 0;
-    for (int i = 0; i < n; i++)
+    int S = 0;
+    int F;
+    int temp;
+    for (F = 1; F < n; F++)
     {
-        if (v[i] != 0)
+        if (v[F] != 0)
         {
-            temp = v[i];
-            v[i] = v[j];
-            v[j] = temp;
-            j++;
+            temp = v[F];
+            v[F] = v[S];
+            v[S] = temp;
+            S++;
+        }
+        else
+        {
+            continue;
         }
     }
 

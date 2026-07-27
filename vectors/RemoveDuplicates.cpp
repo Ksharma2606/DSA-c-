@@ -8,7 +8,6 @@ int main()
     cin >> n;
 
     vector<int> v(n);
-    map<int, int> mp;
 
     for (int i = 0; i < n; i++)
     {
@@ -17,9 +16,13 @@ int main()
 
     int F = 1;
     int S = 0;
-    for (int i = 0; i < n; i++)
+    if (n == 0)
     {
-        if (F != S)
+        return 0;
+    }
+    while (F < n)
+    {
+        if (v[F] != v[S])
         {
             S++;
             v[S] = v[F];
@@ -27,9 +30,8 @@ int main()
         F++;
     }
 
-    for (auto i : v)
+    for (int i = 0; i <= S; i++)
     {
-        cout << i << " ";
+        cout << v[i] << " ";
     }
-    return 0;
 }
