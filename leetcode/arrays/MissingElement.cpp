@@ -4,20 +4,20 @@ using namespace std;
 class Solution
 {
 public:
-    int removeElement(vector<int> &nums, int val)
+    int missingelement(vector<int> &nums)
     {
-        int k = 0;
-
+        int actualsum = 0;
+        int expectedsum = 0;
+        int num = 0;
+        int count = 0;
         for (int i = 0; i < nums.size(); i++)
         {
-            if (nums[i] != val)
-            {
-                nums[k] = nums[i];
-                k++;
-            }
+            actualsum += nums[i];
+            count++;
+            expectedsum += count;
         }
-
-        return k;
+        num = expectedsum - actualsum;
+        return num;
     }
 };
 
@@ -35,21 +35,7 @@ int main()
         cin >> nums[i];
     }
 
-    int val;
-    cin >> val;
-
-    int k = s.removeElement(nums, val);
-
-    cout << "k = " << k << endl;
-
-    cout << "Array after removing " << val << ": ";
-
-    for (int i = 0; i < k; i++)
-    {
-        cout << nums[i] << " ";
-    }
-
-    cout << endl;
+    cout << s.missingelement(nums);
 
     return 0;
 }
